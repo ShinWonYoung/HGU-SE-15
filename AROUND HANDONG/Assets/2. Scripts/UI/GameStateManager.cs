@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameStateManager : MonoBehaviour {
+public class GameStateManager : UIBaseClass
+{
 
     // 나중에 score도 넣을까? 
 
-    
     private bool _isPaused = false;
     private Canvas _pauseMenuCanvas;
-
-    // levels 관련!
-    private string startMenuLevel = "1 StartScene";
-    private string gameLevel = "2 Game";
 
     void Start()
     {
@@ -25,7 +21,8 @@ public class GameStateManager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) { //Escape 누를 때 pause
+        if (Input.GetKeyDown(KeyCode.Escape))
+        { //Escape 누를 때 pause
             if (_isPaused == false) //now pause
             {
                 _isPaused = true;
@@ -51,20 +48,5 @@ public class GameStateManager : MonoBehaviour {
         Time.timeScale = 1.0F;
     }
 
-    public void RestartGame()
-    {
-        Application.LoadLevel(gameLevel);
-    }
 
-    public void StartMenu()
-    {
-        Application.LoadLevel(startMenuLevel);
-    }
-
-    void QuitGame()
-    {
-        //confirm 창?
-
-        Application.Quit();
-    }
 }
