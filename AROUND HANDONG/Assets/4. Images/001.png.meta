@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: b16242407797c8745b3d9646490a9627
-timeCreated: 1447225218
+timeCreated: 1447249613
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: 001_0
     21300002: 001_1
     21300004: 001_2
-    21300006: 001_3
+    21300006: 001_3 chapel
     21300008: 001_4
     21300010: 001_5
     21300012: 001_6
@@ -36,6 +36,33 @@ TextureImporter:
     21300058: 001_29
     21300060: 001_30
     21300062: 001_31
+    21300064: 001_4 house
+    21300066: 001_5 house
+    21300068: 001_6 house
+    21300070: 001_7 house
+    21300072: 001_9 grass
+    21300074: 001_10 grass
+    21300076: 001_11 grass
+    21300078: 001_12 tree
+    21300080: 001_13 tree
+    21300082: 001_14 tree
+    21300084: 001_15 tree
+    21300086: 001_16 tree
+    21300088: 001_17 tree
+    21300090: 001_18 tree
+    21300092: 001_19 tree spring
+    21300094: 001_20 tree
+    21300096: 001_21 autumn
+    21300098: 001_22 cheonmaji
+    21300100: 001_23 grass
+    21300102: 001_24 bench
+    21300104: 001_25 cheonmaji
+    21300106: 001_26 item dia
+    21300108: 001_27 item heart
+    21300110: 001_28 obstacle mouse
+    21300112: 001_29 obstacle grass
+    21300114: 001_30 obstacle wind
+    21300116: 001_31 obstacle banana
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -90,7 +117,7 @@ TextureImporter:
         width: 88
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: 001_1
       rect:
@@ -100,7 +127,7 @@ TextureImporter:
         width: 71
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: 001_2
       rect:
@@ -110,9 +137,9 @@ TextureImporter:
         width: 83
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_3
+    - name: 001_3 chapel
       rect:
         serializedVersion: 2
         x: 302
@@ -120,9 +147,9 @@ TextureImporter:
         width: 58
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_4
+    - name: 001_4 house
       rect:
         serializedVersion: 2
         x: 391
@@ -130,9 +157,9 @@ TextureImporter:
         width: 56
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_5
+    - name: 001_5 house
       rect:
         serializedVersion: 2
         x: 482
@@ -140,9 +167,9 @@ TextureImporter:
         width: 56
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_6
+    - name: 001_6 house
       rect:
         serializedVersion: 2
         x: 571
@@ -150,9 +177,9 @@ TextureImporter:
         width: 59
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_7
+    - name: 001_7 house
       rect:
         serializedVersion: 2
         x: 663
@@ -160,7 +187,7 @@ TextureImporter:
         width: 56
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: 001_8
       rect:
@@ -170,9 +197,9 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_9
+    - name: 001_9 grass
       rect:
         serializedVersion: 2
         x: 90
@@ -180,9 +207,9 @@ TextureImporter:
         width: 29
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_10
+    - name: 001_10 grass
       rect:
         serializedVersion: 2
         x: 127
@@ -190,9 +217,9 @@ TextureImporter:
         width: 45
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_11
+    - name: 001_11 grass
       rect:
         serializedVersion: 2
         x: 182
@@ -200,9 +227,9 @@ TextureImporter:
         width: 24
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_12
+    - name: 001_12 tree
       rect:
         serializedVersion: 2
         x: 218
@@ -210,9 +237,9 @@ TextureImporter:
         width: 42
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_13
+    - name: 001_13 tree
       rect:
         serializedVersion: 2
         x: 281
@@ -220,9 +247,9 @@ TextureImporter:
         width: 40
         height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_14
+    - name: 001_14 tree
       rect:
         serializedVersion: 2
         x: 337
@@ -230,9 +257,9 @@ TextureImporter:
         width: 49
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_15
+    - name: 001_15 tree
       rect:
         serializedVersion: 2
         x: 398
@@ -240,9 +267,9 @@ TextureImporter:
         width: 41
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_16
+    - name: 001_16 tree
       rect:
         serializedVersion: 2
         x: 452
@@ -250,9 +277,9 @@ TextureImporter:
         width: 50
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_17
+    - name: 001_17 tree
       rect:
         serializedVersion: 2
         x: 517
@@ -260,9 +287,9 @@ TextureImporter:
         width: 46
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_18
+    - name: 001_18 tree
       rect:
         serializedVersion: 2
         x: 581
@@ -270,9 +297,9 @@ TextureImporter:
         width: 38
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_19
+    - name: 001_19 tree spring
       rect:
         serializedVersion: 2
         x: 642
@@ -280,9 +307,9 @@ TextureImporter:
         width: 41
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_20
+    - name: 001_20 tree
       rect:
         serializedVersion: 2
         x: 698
@@ -290,9 +317,9 @@ TextureImporter:
         width: 49
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_21
+    - name: 001_21 autumn
       rect:
         serializedVersion: 2
         x: 756
@@ -300,9 +327,9 @@ TextureImporter:
         width: 46
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_22
+    - name: 001_22 cheonmaji
       rect:
         serializedVersion: 2
         x: 811
@@ -310,9 +337,9 @@ TextureImporter:
         width: 60
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_23
+    - name: 001_23 grass
       rect:
         serializedVersion: 2
         x: 62
@@ -320,9 +347,9 @@ TextureImporter:
         width: 26
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_24
+    - name: 001_24 bench
       rect:
         serializedVersion: 2
         x: 123
@@ -330,9 +357,9 @@ TextureImporter:
         width: 58
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_25
+    - name: 001_25 cheonmaji
       rect:
         serializedVersion: 2
         x: 37
@@ -340,9 +367,9 @@ TextureImporter:
         width: 79
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_26
+    - name: 001_26 item dia
       rect:
         serializedVersion: 2
         x: 136
@@ -350,9 +377,9 @@ TextureImporter:
         width: 102
         height: 77
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_27
+    - name: 001_27 item heart
       rect:
         serializedVersion: 2
         x: 253
@@ -360,9 +387,9 @@ TextureImporter:
         width: 91
         height: 77
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_28
+    - name: 001_28 obstacle mouse
       rect:
         serializedVersion: 2
         x: 363
@@ -370,9 +397,9 @@ TextureImporter:
         width: 65
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_29
+    - name: 001_29 obstacle grass
       rect:
         serializedVersion: 2
         x: 437
@@ -380,9 +407,9 @@ TextureImporter:
         width: 62
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_30
+    - name: 001_30 obstacle wind
       rect:
         serializedVersion: 2
         x: 519
@@ -390,9 +417,9 @@ TextureImporter:
         width: 155
         height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 001_31
+    - name: 001_31 obstacle banana
       rect:
         serializedVersion: 2
         x: 674
@@ -400,7 +427,7 @@ TextureImporter:
         width: 75
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
