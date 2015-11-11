@@ -9,7 +9,7 @@ public class UIBaseClass : MonoBehaviour {
 
     public enum gender { GIRL, BOY }
 
-    public static gender playerGender { set; get; }
+    public static gender playerGender = gender.BOY;
     
     public void StartGame()
     {

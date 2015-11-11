@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuManager : UIBaseClass {
@@ -7,15 +8,27 @@ public class MenuManager : UIBaseClass {
 
     private Canvas _startMenuCanvas;
 
+    private Image _soundImage;
+    public Sprite soundOnImage;
+    public Sprite soundOffImage;
+    
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         _startMenuCanvas = GetComponentInChildren<Canvas>();
         _startMenuCanvas.enabled = true;
         AudioListener.volume = 1;
+
+        Image[] images = GetComponentsInChildren<Image>();
+        foreach (Image i in images)
+            if (i.name == "SoundButton") _soundImage = i;
+        
     }
 
     public void SoundControl()
     {
+        _soundImage.sprite = (AudioListener.volume == 0) ? soundOnImage : soundOffImage;
         AudioListener.volume = (AudioListener.volume == 0) ? 1 : 0;
     }
 

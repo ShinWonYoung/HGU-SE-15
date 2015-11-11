@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public class Player : MonoBehaviour 
-{
+public class PlayerAnimation : UIBaseClass {
+
+    private GameObject[] _players = new GameObject[2];
+
     /*
     private bool _isFacingRight;
     private CharacterController2D _controller;   //the code that has the values.
@@ -11,9 +13,25 @@ public class Player : MonoBehaviour
     public float MaxSpeed = 8;
     public float SpeedAccelerationOnGround = 10f; //how quickly the player's speed can change
     public float SpeedAccelerationInAir = 5f;
+    */
 
-    public Animator Animator;
+    void Start()
+    {
+        Transform[] tsArry = GetComponentsInChildren<Transform>();  // 0은 자기 자신, 1은 GIRL, 2는 BOY
 
+        for(int i = 0; i < 2; i++)
+        {
+            _players[i] = tsArry[i + 1].gameObject;
+        }
+        
+        if (playerGender == gender.BOY) _players[0].gameObject.SetActive(false);
+        else _players[1].gameObject.SetActive(false);
+        
+    }
+
+
+
+    /*
     public void Start()
     {
         _controller = GetComponent<CharacterController2D>();
