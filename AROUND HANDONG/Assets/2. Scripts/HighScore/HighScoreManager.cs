@@ -2,12 +2,10 @@
 using System.Collections;
 
 public class HighScoreManager : MonoBehaviour {
-
-    public GUISkin customSkin;
-
+    
     public static string userName = "Player 1";
 
-    public int maxNumOfUsers = 5;
+    public static int maxNumOfUsers = 5;
 
     enum Page { GAMEOVER, LOCALSCORE, SERVERSCORE };
 
@@ -20,8 +18,6 @@ public class HighScoreManager : MonoBehaviour {
 
 
     //버튼들이 클릭됐는지 확인한다
-    private bool b_isClickRestart = false;
-
     private bool b_isClickSubmit = false;
 
     private LocalHighScore obj_localHighScore;
@@ -30,7 +26,7 @@ public class HighScoreManager : MonoBehaviour {
     void Start () {
         e_page = Page.GAMEOVER;
         scrollPositionL = scrollPositionR = Vector2.zero;
-        b_isClickRestart = b_isClickSubmit = false;
+        b_isClickSubmit = false;
 
         obj_localHighScore = new LocalHighScore();
         obj_localHighScore.SetMaxUser(maxNumOfUsers);
@@ -39,35 +35,22 @@ public class HighScoreManager : MonoBehaviour {
     void OnGUI() //게임 종료 page를 나타내기 위한 코드
     {
         //if() //game over 됐을때 StaticVars.b_isGameOver
+        switch (e_page)
         {
-            GUI.skin = customSkin;
-            if(b_isClickRestart == false)
-            {
-                switch (e_page)
-                {
-                    case Page.GAMEOVER:
-                        GameOverPage(); //게임 종료 page
-                        break;
-                    case Page.LOCALSCORE:
-                        LocalScorePage();
-                        break;
-                    case Page.SERVERSCORE:
-                        break;
-                }
-
-                // RESTART button 만들기
-
-            }
-            else
-            {
-                //RESTART button 클릭했을 때 보여줄 로딩 text
-            }
+            case Page.GAMEOVER:
+                GameOverPage(); //게임 종료 page
+                break;
+            case Page.LOCALSCORE:
+                LocalScorePage();
+                break;
         }
 
     }
 
     private void GameOverPage()
     {
+
+
         //배경으로 쓰일 box
         //player의 최종 점수를 보여줄 text label....
         //player의 이름 입력할 text field
