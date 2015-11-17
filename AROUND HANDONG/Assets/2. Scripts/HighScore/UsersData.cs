@@ -5,7 +5,7 @@ public class UsersData {
 
     //player's data 담고, PlayerPref을 이용해서 user data 저장, 불러온다.
 
-    public string keylocal = "RunnerLocal";
+    private string keylocal = "AH_Local";
     private string s_keyScore = "Score";
     private string s_keyName = "Name";
 

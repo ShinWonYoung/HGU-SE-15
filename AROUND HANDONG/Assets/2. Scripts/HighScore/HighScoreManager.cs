@@ -1,71 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HighScoreManager : MonoBehaviour {
+public class HighScoreManager : UIBaseClass {
     
-    public static string userName = "Player 1";
-
+    public static string userName = "Play1";
     public static int maxNumOfUsers = 5;
+    public static int minScore = 0;
 
-    enum Page { GAMEOVER, LOCALSCORE, SERVERSCORE };
-
-    private Page e_page = Page.GAMEOVER; //기본값이 gameover
-
-    //필요 없을 수도!
-    private Vector2 scrollPositionL = Vector2.zero; //local scores scroll 영역의 scroller 초기
-
-    private Vector2 scrollPositionR = Vector2.zero;
-
-
-    //버튼들이 클릭됐는지 확인한다
-    private bool b_isClickSubmit = false;
-
+    private string finishLevel = "3 FinishScene";
+    private string highScoreLevel = "3 HighScore";
+    
     private LocalHighScore obj_localHighScore;
 
+    
     // Use this for initialization
     void Start () {
-        e_page = Page.GAMEOVER;
-        scrollPositionL = scrollPositionR = Vector2.zero;
-        b_isClickSubmit = false;
-
         obj_localHighScore = new LocalHighScore();
-        obj_localHighScore.SetMaxUser(maxNumOfUsers);
-	}
-	
-    void OnGUI() //게임 종료 page를 나타내기 위한 코드
-    {
-        //if() //game over 됐을때 StaticVars.b_isGameOver
-        switch (e_page)
-        {
-            case Page.GAMEOVER:
-                GameOverPage(); //게임 종료 page
-                break;
-            case Page.LOCALSCORE:
-                LocalScorePage();
-                break;
-        }
-
+        obj_localHighScore.setMaxUser(maxNumOfUsers);
+        minScore = obj_localHighScore.getMinScore();
     }
 
-    private void GameOverPage()
+    void GameOver(int score) //gameover 됐을 때 불러올 것! 어디에 둴지는 몰겟다... minScore를 static으로 넣거나...
+    {
+        string levelName = (score > minScore) ? highScoreLevel : finishLevel;
+        Application.LoadLevel(levelName);
+    }
+
+    // 만약 첫화면에서, 그리고 마지막에서 high score 보고 싶을 떄 - Load 하면 되고. 그걸 string화 시켜서 text에 넣는거
+    void LoadScores()
     {
 
 
-        //배경으로 쓰일 box
-        //player의 최종 점수를 보여줄 text label....
-        //player의 이름 입력할 text field
-        //submit button
-        //submit 누르면 obj_localHighScore.SaveGame(점수, 이름);
-
-        //local 점수 page button
-        //server 점수 page button
     }
 
-    private void LocalScorePage()
+
+    // high score 화면에서
+    void LoadHighScores()
     {
-        //배경...
-        //텍스트 수정
-        //for(int i = 0; i < maxNumOfUsers; i++) { 텍스트 수정하자.  }
+        //거의 LoadScores()이랑 비슷한데, 자기 점수가 어딘지 알아야 되자나.... 그리고 load해.
     }
 
+
+    // high score 화면에서 button을 눌렀을 경우에는 StartGame() 불러와.
+    void SubmitScore()
+    {
+        // get the text for player name
+
+        //obj_localHighScore.SaveGame(score, name);
+
+        StartGame();
+
+    }
+    
+   
 }
