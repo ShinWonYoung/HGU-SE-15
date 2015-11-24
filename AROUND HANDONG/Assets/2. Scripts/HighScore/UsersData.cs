@@ -9,6 +9,8 @@ public class UsersData {
     private string s_keyScore = "Score";
     private string s_keyName = "Name";
 
+    public static string DEFAULT_NAME = "_____"; 
+
     private string s_name;
     private int int_score;
     private string[] as_randomNames = { "Helen", "Sara", "Mary", "Seth", "Beccy" };
@@ -16,6 +18,11 @@ public class UsersData {
     public void Init(string name, int score)
     {
         int_score = score;
+        s_name = name;
+    }
+
+    public void SetName(string name)
+    {
         s_name = name;
     }
 
@@ -32,6 +39,7 @@ public class UsersData {
     public void SaveLocal(int index)
     {
         //player들의 점수, 이름 저장
+        // 기존에 저장되어 있는 PlayerPrefs에 값을 수정!
         PlayerPrefs.SetInt(keylocal + s_keyScore + index.ToString(), int_score);
         PlayerPrefs.SetString(keylocal + s_keyName + index.ToString(), s_name);
     }
@@ -58,14 +66,16 @@ public class UsersData {
         string s_newKey = keylocal + s_keyScore + index.ToString();
         if (PlayerPrefs.HasKey(s_newKey))
         {
-            return PlayerPrefs.GetString(keylocal + s_keyName + index.ToString());
+            string player_name = PlayerPrefs.GetString(keylocal + s_keyName + index.ToString());
+            if (player_name == DEFAULT_NAME) player_name = "PLAYER";
+            return player_name;
         }
         else
         {
             //찾으려는 키가 없으면 무작위로 임시 이름
             int int_random = Random.Range(0, as_randomNames.Length);
-            return "";
-            //return as_randomNames[int_random];
+            // return "";
+            return as_randomNames[int_random];
         }
         //없으면 -1 보내자!
     }

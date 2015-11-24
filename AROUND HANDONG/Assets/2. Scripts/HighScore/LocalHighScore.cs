@@ -7,6 +7,22 @@ public class LocalHighScore {
     private int minScore;
     private UsersData[] userHighScoresData;  // only those for high score
 
+    private static volatile LocalHighScore instance;
+
+    private LocalHighScore() {
+
+        LoadGameLocal();
+    }
+
+    public static LocalHighScore getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new LocalHighScore();
+        }
+        return instance;
+    }
+
     public void setMaxUser(int maxUserNum)
     {
         this.maxUserNum = maxUserNum;
@@ -15,7 +31,34 @@ public class LocalHighScore {
 
     public int getMinScore()
     {
+        LoadGameLocal();
         return minScore;
+    }
+
+    public string getPlayerNames()
+    {
+        string playerNameString = "";
+
+        for(int i = 0; i < maxUserNum; i++)
+        {
+            playerNameString += userHighScoresData[i].GetName();
+            playerNameString += (i == maxUserNum - 1) ? "" : "\n\n";
+        }
+
+        return playerNameString;
+    }
+
+    public string getPlayerScores()
+    {
+        string playerScoresString = "";
+
+        for (int i = 0; i < maxUserNum; i++)
+        {
+            playerScoresString += userHighScoresData[i].GetScore();
+            playerScoresString += (i == maxUserNum - 1) ? "" : "\n\n";
+        }
+
+        return playerScoresString;
     }
 
     public void LoadGameLocal()
@@ -34,23 +77,28 @@ public class LocalHighScore {
         minScore = Mathf.Min(scores);
     }
     
-    public void SaveGame(int score, string name)
+    public void SaveGame(int score)
     {
         if(score >= minScore)
         {
             ArrayList newData = new ArrayList(userHighScoresData);
 
             //remove last UsersData, newData.RemoveAt()
+            newData.RemoveAt(maxUserNum - 1);
 
             //추가할 new UsersData
             UsersData obj_user = new UsersData();
-            obj_user.Init(name, score);
+            obj_user.Init(UsersData.DEFAULT_NAME, score);
 
-            //add to newData Array List
+            // Add to newData Array List
+            newData.Add(obj_user);
 
-            //userScoresData = newData 형식에 맞게
+            // Sort Users By Scores
+            newData.Sort(new ScoreComparer());
 
-            //SortUsers(users_);
+            // UserScoresData = newData 형식에 맞게
+            userHighScoresData = (UsersData[]) newData.ToArray();
+
         }
 
         for(int i = 0; i < maxUserNum; i++)  // PlayerPrefs 값들이 계속 바뀌는 거.
@@ -60,9 +108,28 @@ public class LocalHighScore {
 
     }
 
-    private void SortUser()
+    public void SaveGame(string name)
     {
+        for(int i = 0; i < maxUserNum; i++)
+        {
+            if(userHighScoresData[i].GetName() == UsersData.DEFAULT_NAME)
+            {
+                userHighScoresData[i].SetName(name);
+                userHighScoresData[i].SaveLocal(i);
+            }
+        }
+    }
 
+    public class ScoreComparer : IComparer
+    {
+        Comparer _comparer = new Comparer(System.Globalization.CultureInfo.CurrentCulture);
+
+        public int Compare(object p1, object p2)
+        {
+            UsersData u1 = (UsersData) p1;
+            UsersData u2 = (UsersData) p2;
+            return _comparer.Compare(u2.GetScore(), u1.GetScore());
+        }
     }
 
 }
