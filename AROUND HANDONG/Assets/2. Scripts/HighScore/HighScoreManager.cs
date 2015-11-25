@@ -41,11 +41,12 @@ public class HighScoreManager : UIBaseClass {
         LoadScores();
     }
 
-    public void GameOver(int score) //gameover 됐을 때 불러올 것! 어디에 둴지는 몰겟다... minScore를 static으로 넣거나...
+    public static void GameOver(int score) //gameover 됐을 때 불러올 것! 어디에 둴지는 몰겟다... minScore를 static으로 넣거나...
     {
+        LocalHighScore obj_localHighScore = LocalHighScore.getInstance();
         if (score > minScore) obj_localHighScore.SaveGame(score);
 
-        string levelName = (score > minScore) ? highScoreLevel : finishLevel;
+        string levelName = (score > minScore) ? "3 HighScore" : "3 FinishScene";
         Application.LoadLevel(levelName);
     }
 
