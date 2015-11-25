@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameStateManager : UIBaseClass
 {
@@ -12,7 +13,7 @@ public class GameStateManager : UIBaseClass
     void Start()
     {
 
-        //font 조절하는거.
+        SetFontSize(_pauseMenuCanvas);
 
         _isPaused = false;
         _pauseMenuCanvas = GetComponentInChildren<Canvas>();

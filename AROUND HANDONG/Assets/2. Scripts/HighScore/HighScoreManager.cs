@@ -28,6 +28,8 @@ public class HighScoreManager : UIBaseClass {
         Text[] texts = _highScoreCanvas.GetComponentsInChildren<Text>();
         foreach(Text t in texts)
         {
+            t.fontSize *= (Screen.width) / 1236;
+
             if(t.name.Contains("Player Name")) RankPlayerNameText = t;
             else if(t.name.Contains("Scores")) RankScoreText = t;
         }
