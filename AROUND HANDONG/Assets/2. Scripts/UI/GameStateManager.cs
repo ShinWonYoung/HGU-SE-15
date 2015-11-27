@@ -9,15 +9,19 @@ public class GameStateManager : UIBaseClass
 
     private bool _isPaused = false;
     private Canvas _pauseMenuCanvas;
+    public GameObject _confirmTab;
 
     void Start()
     {
 
-        SetFontSize(_pauseMenuCanvas);
-
         _isPaused = false;
         _pauseMenuCanvas = GetComponentInChildren<Canvas>();
         _pauseMenuCanvas.enabled = false;
+
+        SetFontSize(_pauseMenuCanvas);
+       
+        _confirmTab.SetActive(false);
+
     }
 
     void Update()
@@ -49,5 +53,12 @@ public class GameStateManager : UIBaseClass
         Time.timeScale = 1.0F;
     }
 
+
+    public void OpenCloseConfirmTab()
+    {
+        bool b_active = (_confirmTab.activeSelf == false) ? true : false;
+        _confirmTab.SetActive(b_active);
+
+    }
 
 }

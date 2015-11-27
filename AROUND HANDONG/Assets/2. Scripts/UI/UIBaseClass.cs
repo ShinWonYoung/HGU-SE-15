@@ -16,11 +16,13 @@ public class UIBaseClass : MonoBehaviour {
     
     public void StartGame()
     {
+        Time.timeScale = 1.0F;
         Application.LoadLevel(gameLevel);
     }
 
     public void StartMenu()
     {
+        Time.timeScale = 1.0F;
         Application.LoadLevel(startMenuLevel);
     }
 
@@ -34,7 +36,7 @@ public class UIBaseClass : MonoBehaviour {
         Text[] texts = c.GetComponentsInChildren<Text>();
         foreach (Text t in texts)
         {
-            t.fontSize *= (Screen.width) / 1236;
+            t.fontSize = (int) (t.fontSize * ((Screen.width) / 1236f));
         }
     }
 }
