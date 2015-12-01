@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LocalHighScore {
 
-    private int maxUserNum;
+    private int maxUserNum = 5;
     private int minScore;
     private UsersData[] userHighScoresData;  // only those for high score
 
@@ -79,12 +79,11 @@ public class LocalHighScore {
     
     public void SaveGame(int score)
     {
-        if(score >= minScore)
+        LoadGameLocal();
+        ArrayList newData;
+        if (score >= minScore)
         {
-            ArrayList newData = new ArrayList(userHighScoresData);
-
-            //remove last UsersData, newData.RemoveAt()
-            newData.RemoveAt(maxUserNum - 1);
+            newData = new ArrayList(userHighScoresData);
 
             //추가할 new UsersData
             UsersData obj_user = new UsersData();
@@ -97,13 +96,13 @@ public class LocalHighScore {
             newData.Sort(new ScoreComparer());
 
             // UserScoresData = newData 형식에 맞게
-            userHighScoresData = (UsersData[]) newData.ToArray();
+            userHighScoresData = newData.ToArray(typeof(UsersData)) as UsersData[];
 
         }
 
         for(int i = 0; i < maxUserNum; i++)  // PlayerPrefs 값들이 계속 바뀌는 거.
         {
-            userHighScoresData[i].SaveLocal(i);
+            if(userHighScoresData[i].GetScore() >= 0) userHighScoresData[i].SaveLocal(i);
         }
 
     }

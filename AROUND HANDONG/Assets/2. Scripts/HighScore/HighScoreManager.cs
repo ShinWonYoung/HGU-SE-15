@@ -4,14 +4,13 @@ using UnityEngine.UI;
 
 public class HighScoreManager : UIBaseClass {
     
-    public static string userName = "Play1";
     public static int maxNumOfUsers = 5;
     public static int minScore = 0;
 
     private string finishLevel = "3 FinishScene";
     private string highScoreLevel = "3 HighScore";
     
-    private LocalHighScore obj_localHighScore;
+    private static LocalHighScore obj_localHighScore;
 
     private Canvas _highScoreCanvas;
     private Text RankPlayerNameText;
@@ -28,7 +27,7 @@ public class HighScoreManager : UIBaseClass {
         Text[] texts = _highScoreCanvas.GetComponentsInChildren<Text>();
         foreach(Text t in texts)
         {
-            t.fontSize = (int)(t.fontSize * ((Screen.width) / 1236f));
+            t.fontSize = (int)(t.fontSize * ((Screen.width) / 1100f));
 
             if (t.name.Contains("Player Name")) RankPlayerNameText = t;
             else if(t.name.Contains("Scores")) RankScoreText = t;
@@ -62,6 +61,7 @@ public class HighScoreManager : UIBaseClass {
     {
         // get the text for player name
         string name = PlayerNameInputText.text;
+        if (name == UsersData.DEFAULT_NAME) name = "PLAYER";
         obj_localHighScore.SaveGame(name);
         
         StartGame();

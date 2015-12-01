@@ -10,6 +10,7 @@ public class GameStateManager : UIBaseClass
     private bool _isPaused = false;
     private Canvas _pauseMenuCanvas;
     public GameObject _confirmTab;
+    private Text _scoreText;
 
     void Start()
     {
@@ -21,7 +22,10 @@ public class GameStateManager : UIBaseClass
         SetFontSize(_pauseMenuCanvas);
        
         _confirmTab.SetActive(false);
-
+        Text[] textArry = _pauseMenuCanvas.GetComponentsInChildren<Text>();
+        foreach(Text text in textArry) {
+            if (text.name.Contains("Score")) _scoreText = text;
+        }
     }
 
     void Update()
@@ -43,6 +47,7 @@ public class GameStateManager : UIBaseClass
 
     void PauseGame()
     {
+        _scoreText.text = "" + Score.getScore();
         _pauseMenuCanvas.enabled = true;
         Time.timeScale = 0; //pause
     }

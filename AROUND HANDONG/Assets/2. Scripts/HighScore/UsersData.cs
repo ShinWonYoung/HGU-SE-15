@@ -67,7 +67,6 @@ public class UsersData {
         if (PlayerPrefs.HasKey(s_newKey))
         {
             string player_name = PlayerPrefs.GetString(keylocal + s_keyName + index.ToString());
-            if (player_name == DEFAULT_NAME) player_name = "PLAYER";
             return player_name;
         }
         else

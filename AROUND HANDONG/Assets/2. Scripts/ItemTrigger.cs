@@ -15,8 +15,10 @@ public class ItemTrigger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerTrigger"))
+        if (other.CompareTag("Player"))
         {
+            if (this.name == "Diamond") Score.addHeart();
+            else if (this.name == "Heart") Score.addDia();
             Destroy(gameObject);
         }
     }

@@ -36,7 +36,7 @@ public class UIBaseClass : MonoBehaviour {
         Text[] texts = c.GetComponentsInChildren<Text>();
         foreach (Text t in texts)
         {
-            t.fontSize = (int) (t.fontSize * ((Screen.width) / 1236f));
+            t.fontSize = (int) (t.fontSize * ((Screen.width) / 1100f));
         }
     }
 }
