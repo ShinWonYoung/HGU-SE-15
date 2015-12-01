@@ -102,7 +102,7 @@ public class LocalHighScore {
 
         for(int i = 0; i < maxUserNum; i++)  // PlayerPrefs 값들이 계속 바뀌는 거.
         {
-            Debug.Log("name: " + userHighScoresData[i].GetName() + " score:" + userHighScoresData[i].GetScore());
+            
             if(userHighScoresData[i].GetScore() >= 0) userHighScoresData[i].SaveLocal(i);
         }
 
