@@ -27,7 +27,7 @@ public class HighScoreManager : UIBaseClass {
         Text[] texts = _highScoreCanvas.GetComponentsInChildren<Text>();
         foreach(Text t in texts)
         {
-            t.fontSize = (int)(t.fontSize * ((Screen.width) / 1100f));
+            t.fontSize = (int)(t.fontSize * ((Screen.width) / 1236f));
 
             if (t.name.Contains("Player Name")) RankPlayerNameText = t;
             else if(t.name.Contains("Scores")) RankScoreText = t;
@@ -59,9 +59,10 @@ public class HighScoreManager : UIBaseClass {
     // high score 화면에서 button을 눌렀을 경우에는 StartGame() 불러와.
     public void SubmitScore()
     {
+        LocalHighScore obj_localHighScore = LocalHighScore.getInstance();
         // get the text for player name
         string name = PlayerNameInputText.text;
-        if (name == UsersData.DEFAULT_NAME) name = "PLAYER";
+        if (name == UsersData.DEFAULT_NAME || name == "") name = "PLAYER";
         obj_localHighScore.SaveGame(name);
         
         StartGame();

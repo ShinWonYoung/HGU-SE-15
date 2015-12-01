@@ -21,10 +21,14 @@ public class MouseTwoMovement : MonoBehaviour {
         if (moveX <= 72.3)
         {
             speed = -speed;
+            moveX = transform.position.x + (speed * Time.deltaTime);
+            transform.position = new Vector3(moveX, transform.position.y, transform.position.z);
         }
         else if (moveX >= 87.5)
         {
             speed = -speed;
+            moveX = transform.position.x + (speed * Time.deltaTime);
+            transform.position = new Vector3(moveX, transform.position.y, transform.position.z);
         }
     }
 }

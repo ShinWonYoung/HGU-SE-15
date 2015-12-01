@@ -17,7 +17,6 @@ public class MenuManager : UIBaseClass {
     // Use this for initialization
     void Start ()
     {
-
         AudioListener.volume = 1;
 
         Image[] images = GetComponentsInChildren<Image>();
@@ -32,6 +31,12 @@ public class MenuManager : UIBaseClass {
             if (_highScoreCanvas != null) _highScoreCanvas.enabled = false;
         }
         catch(Exception e) { Debug.Log(e);  }
+
+        Text[] textArry = _startMenuCanvas.GetComponentsInChildren<Text>();
+        foreach (Text ctext in textArry)
+        {
+            if (ctext.name.Contains("Score")) ctext.text = "" + Score.getScore();
+        }
 
         SetFontSize(_startMenuCanvas);
 

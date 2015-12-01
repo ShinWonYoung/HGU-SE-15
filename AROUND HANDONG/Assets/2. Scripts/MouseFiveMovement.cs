@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouseOneMovement : MonoBehaviour
-{
+public class MouseFiveMovement : MonoBehaviour {
 
     private float speed = -5.0f;
     private float moveX;
@@ -19,13 +18,13 @@ public class MouseOneMovement : MonoBehaviour
         moveX = transform.position.x + (speed * Time.deltaTime);
         transform.position = new Vector3(moveX, transform.position.y, transform.position.z);
 
-        if(moveX <= 36.3)
+        if (moveX <= 116.3)
         {
             speed = -speed;
             moveX = transform.position.x + (speed * Time.deltaTime);
             transform.position = new Vector3(moveX, transform.position.y, transform.position.z);
         }
-        else if(moveX >= 51.5)
+        else if (moveX >= 123.6)
         {
             speed = -speed;
             moveX = transform.position.x + (speed * Time.deltaTime);

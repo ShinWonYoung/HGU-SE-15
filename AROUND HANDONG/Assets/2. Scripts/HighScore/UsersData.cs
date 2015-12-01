@@ -9,7 +9,7 @@ public class UsersData {
     private string s_keyScore = "Score";
     private string s_keyName = "Name";
 
-    public static string DEFAULT_NAME = "_____"; 
+    public static string DEFAULT_NAME = "______"; 
 
     private string s_name;
     private int int_score;

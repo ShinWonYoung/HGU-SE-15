@@ -5,10 +5,12 @@ public class PlayerController : MonoBehaviour {
 
     public float speed = 10.0f;
     public bool isFacingRight = true;
-    public Rigidbody2D _rigidbody;
+
+    private Rigidbody2D _rigidbody;
 
     public bool isGrounded = false;
-    public Transform groundCheck;
+    public GameObject groundCheck;
+
     public float groundCheckRadius = 0.2f;
     public LayerMask whatIsGround;
 
@@ -18,14 +20,15 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _animator = GetComponent<Animator>(); 
+        _animator = GetComponentInChildren<Animator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         //GroundCheck 오브젝트가 콜라이더와 겹치는 범위를 통해 캐릭터가 땅에 있는지 확인
         //WhatIsGround 는 Player Layer를 제외한 모든 Layer이어야함. 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsGround);
         _animator.SetBool("Ground", isGrounded);
 
         float move = Input.GetAxis("Horizontal");
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
+
+        _rigidbody.rotation = 0.0f;
         bool jump = Input.GetKeyDown(KeyCode.Space);
 
         if(isGrounded && jump)

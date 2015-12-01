@@ -17,4 +17,12 @@ public class CameraController : MonoBehaviour {
         movX = transform.position.x + (speed * Time.deltaTime);
         transform.position = new Vector3(movX, transform.position.y, transform.position.z);
 	}
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag("PlayerTrigger"))
+        {
+            Score.GameOver();
+        }
+    }
 }

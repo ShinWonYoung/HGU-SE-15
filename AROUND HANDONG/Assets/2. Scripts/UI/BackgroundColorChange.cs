@@ -18,8 +18,7 @@ public class BackgroundColorChange : MonoBehaviour {
     {
         for( int i = 0; i < 4; i++ )
         {
-            for(int j = 0; j < 4; j++)
-            _color[i][j] = rgbValues[i,j];
+            _color[i] = new Color(rgbValues[i, 0] / 255.0f, rgbValues[i, 1] / 255.0f, rgbValues[i, 2] / 255.0f, rgbValues[i, 3] / 255.0f);
         }
         _currColor = 0;
         _camera = GetComponent<Camera>();
@@ -34,8 +33,8 @@ public class BackgroundColorChange : MonoBehaviour {
             Color color1 = _color[_currColor];
             _currColor = (_currColor + 1) % 4;
             Color color2 = _color[_currColor];
-            _camera.backgroundColor = Color.Lerp(color1, color2, 1.0f);
-            timeValue += 3.0f;
+            _camera.backgroundColor = Color.Lerp(color1, color2, 3.0f);
+            timeValue += 10.0f;
         }
     }
 }

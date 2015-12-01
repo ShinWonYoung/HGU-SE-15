@@ -19,6 +19,7 @@ public class PlayerTrigger : MonoBehaviour {
     {
         if (other.CompareTag("KillingTrigger"))
         {
+            Score.GameOver();
             Destroy(gameObject);
         }
     }
