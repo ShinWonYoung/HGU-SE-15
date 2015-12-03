@@ -23,7 +23,15 @@ public class HighScoreManager : UIBaseClass {
 
         _highScoreCanvas = GetComponentInChildren<Canvas>();
         PlayerNameInputText = _highScoreCanvas.GetComponentInChildren<InputField>();
-
+        if(PlayerNameInputText != null)
+        {
+            Text[] inputTexts = PlayerNameInputText.gameObject.GetComponentsInChildren<Text>();
+            foreach(Text t in inputTexts)
+            {
+                if (t.name == "Placeholder") t.text = UsersData.DEFAULT_NAME;
+            }
+        }
+        
         Text[] texts = _highScoreCanvas.GetComponentsInChildren<Text>();
         foreach(Text t in texts)
         {
@@ -43,6 +51,7 @@ public class HighScoreManager : UIBaseClass {
     public static void GameOver(int score) //gameover 됐을 때 불러올 것! 어디에 둴지는 몰겟다... minScore를 static으로 넣거나...
     {
         LocalHighScore obj_localHighScore = LocalHighScore.getInstance();
+        minScore = obj_localHighScore.getMinScore();
         if (score > minScore) obj_localHighScore.SaveGame(score);
 
         string levelName = (score > minScore) ? "3 HighScore" : "3 FinishScene";
@@ -67,5 +76,13 @@ public class HighScoreManager : UIBaseClass {
         
         StartGame();
 
+    }
+
+    public void OnApplicationQuit()
+    {
+        if (PlayerNameInputText != null)
+        {
+            SubmitScore();
+        }
     }
 }

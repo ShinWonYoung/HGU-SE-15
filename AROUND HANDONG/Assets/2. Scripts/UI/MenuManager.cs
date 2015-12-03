@@ -17,18 +17,26 @@ public class MenuManager : UIBaseClass {
     // Use this for initialization
     void Start ()
     {
-        AudioListener.volume = 1;
+        SetSound();
 
         Image[] images = GetComponentsInChildren<Image>();
         foreach (Image i in images)
-            if (i.name == "SoundButton") _soundImage = i;
+            if (i.name == "SoundButton")
+            {
+                _soundImage = i;
+                _soundImage.sprite = (sound == 1) ? soundOnImage : soundOffImage;
+            }
 
         _startMenuCanvas = GetComponentInChildren<Canvas>();
         _startMenuCanvas.enabled = true;
 
         try {
             _highScoreCanvas = GameObject.Find("HighScoreUI").GetComponentInChildren<Canvas>();
-            if (_highScoreCanvas != null) _highScoreCanvas.enabled = false;
+            if (_highScoreCanvas != null)
+            {
+                _highScoreCanvas.enabled = false;
+                SetFontSize(_startMenuCanvas);
+            }
         }
         catch(Exception e) { Debug.Log(e);  }
 
@@ -38,14 +46,14 @@ public class MenuManager : UIBaseClass {
             if (ctext.name.Contains("Score")) ctext.text = "" + Score.getScore();
         }
 
-        SetFontSize(_startMenuCanvas);
 
     }
 
     public void SoundControl()
     {
-        _soundImage.sprite = (AudioListener.volume == 0) ? soundOnImage : soundOffImage;
-        AudioListener.volume = (AudioListener.volume == 0) ? 1 : 0;
+        _soundImage.sprite = (sound == 0) ? soundOnImage : soundOffImage;
+        sound = (sound == 0) ? 1 : 0;
+        AudioListener.volume = sound;
     }
 
     public void MenuStartGame(string playerG)

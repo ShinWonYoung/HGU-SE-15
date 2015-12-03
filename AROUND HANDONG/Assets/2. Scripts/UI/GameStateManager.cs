@@ -14,7 +14,7 @@ public class GameStateManager : UIBaseClass
 
     void Start()
     {
-
+        SetSound();
         _isPaused = false;
         _pauseMenuCanvas = GetComponentInChildren<Canvas>();
         _pauseMenuCanvas.enabled = false;

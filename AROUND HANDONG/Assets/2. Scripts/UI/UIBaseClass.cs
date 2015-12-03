@@ -8,12 +8,19 @@ public class UIBaseClass : MonoBehaviour {
     private string startMenuLevel = "1 StartScene";
     private string gameLevel = "2 Game";
 
+    public static int sound = 1;
+
     public enum gender { GIRL, BOY }
 
     public float FontSizePercent = 0.1f;
 
     public static gender playerGender = gender.BOY;
     
+    public void SetSound()
+    {
+        AudioListener.volume = sound;
+    }
+
     public void StartGame()
     {
         Time.timeScale = 1.0F;
